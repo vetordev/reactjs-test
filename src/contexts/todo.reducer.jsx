@@ -1,7 +1,9 @@
+import generateId from '../utils/generateItemId';
+
 export default function reducer(state, action) {
 
     const addTodo = (todo) => {
-        let todoItem = { id: state.length + 1, description: todo, done: false };
+        let todoItem = { id: generateId(state), description: todo, done: false };
         return [...state, todoItem];
     }
 
