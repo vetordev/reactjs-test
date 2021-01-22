@@ -6,12 +6,13 @@ import { TodoContext } from '../../../../contexts/todo.context';
 
 const useStyles = makeStyles(() => ({
     backgroundItemGray: {
-        backgroundColor: '#d3d3d3'
+        backgroundColor: '#d3d3d3',
+        cursor: "pointer"
     },
     backgroundItemWhite: {
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        cursor: "pointer"
     },
-
     colorDoneGreen: {
         color: '#0f0'
     },
