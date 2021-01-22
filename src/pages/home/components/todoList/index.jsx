@@ -5,7 +5,7 @@ import Todo from "../todoItem"
 export default function TodoList() {
     const todoContext = useContext(TodoContext);
     return (
-        <article>
+        <div>
             {todoContext.todos.map((todo) => {
 
                 if (todo != null)
@@ -19,6 +19,6 @@ export default function TodoList() {
                     )
 
             })}
-        </article >
+        </div >
     )
 }

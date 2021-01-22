@@ -75,7 +75,7 @@ export default function Todo({ id, description, done }) {
     }
 
     return (
-        <div className={backgroundItemColor(id)}>
+        <article className={backgroundItemColor(id)}>
             <div >
                 <div>{id} - {description}</div>
                 <div >
@@ -99,6 +99,6 @@ export default function Todo({ id, description, done }) {
                     Deletar
                 </button>
             </div>
-        </div>
+        </article>
     )
 }
