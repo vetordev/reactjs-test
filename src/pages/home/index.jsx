@@ -3,7 +3,6 @@ import TodoList from "./components/todoList";
 import TodoHeader from "./components/todoHeader";
 import { makeStyles } from "@material-ui/core/styles";
 
-
 const useStyles = makeStyles(() => ({
 
     root: {
