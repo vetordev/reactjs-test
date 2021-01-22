@@ -6,6 +6,7 @@ export const TodoContext = createContext();
 
 
 export default function TodoProvider(props) {
+
     const data = useMemo(() => repository(), []);
 
     const list = useCallback(() => {
@@ -13,6 +14,7 @@ export default function TodoProvider(props) {
         if (!items) return [];
         return items;
     }, [data]);
+
 
     const [todos, dispatch] = useReducer(TodoReducer, list());
     return (
