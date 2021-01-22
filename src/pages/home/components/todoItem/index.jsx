@@ -5,11 +5,19 @@ import { makeStyles } from "@material-ui/core/styles";
 import { TodoContext } from '../../../../contexts/todo.context';
 
 const useStyles = makeStyles(() => ({
-    backgroundGray: {
+    backgroundItemGray: {
         backgroundColor: '#d3d3d3'
     },
-    backgroundWhite: {
+    backgroundItemWhite: {
         backgroundColor: '#fff'
+    },
+
+    colorDoneGreen: {
+        color: '#0f0'
+    },
+
+    colorDoneRed: {
+        color: '#f00'
     }
 }));
 
@@ -18,13 +26,23 @@ export default function Todo({ id, description, done }) {
     const classes = useStyles();
     const todoContext = useContext(TodoContext);
 
-    const backgroundColor = (id) => {
+    const backgroundItemColor = (id) => {
 
         if (id % 2 == 0) {
-            return classes.backgroundWhite
+            return classes.backgroundItemWhite
         } else {
-            return classes.backgroundGray
+            return classes.backgroundItemGray
         }
+    }
+
+    const colorItem = (done) => {
+
+        if (done == true) {
+            return classes.colorDoneGreen
+        } else {
+            return classes.colorDoneRed
+        }
+
     }
 
     const handleDoneTodo = (e) => {
@@ -35,10 +53,13 @@ export default function Todo({ id, description, done }) {
     }
 
     return (
-        <div className={backgroundColor(id)}>
+        <div className={backgroundItemColor(id)}>
             <div >
                 <div>{id} - {description}</div>
-                <div >Feito? {done === true ? 'Sim' : 'Não'}</div>
+                <div >
+                    Feito?
+                    <span className={colorItem(done)}> {done === true ? 'Sim' : 'Não'}</span>
+                </div>
             </div>
             <div >
                 <button type="button" onClick={(e) => handleDoneTodo(e)} >Ok</button>
