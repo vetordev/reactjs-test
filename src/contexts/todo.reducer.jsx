@@ -10,6 +10,9 @@ export default function reducer(state, action) {
     const updateTodo = (todo) => {
 
         state = state.map((item) => {
+            if (todo == null)
+                return;
+
             if(item.id != todo.id)
                 return item;
 
@@ -21,7 +24,19 @@ export default function reducer(state, action) {
     };
 
     const deleteTodo = (todo) => {
-        return state;
+
+        state = state.map((item) => {
+            if (item == null)
+                return null;
+
+            if(item.id == todo.id)
+                return null;
+
+            return item;
+        });
+
+
+        return state
     }
 
     switch (action.type) {

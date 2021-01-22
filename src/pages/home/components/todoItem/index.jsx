@@ -66,6 +66,13 @@ export default function Todo({ id, description, done }) {
 
     }
 
+    const handleDeleteTodo = (e) => {
+        e.preventDefault();
+
+        todoContext.dispatch({ type: 'remove', payload: { id, description, done } })
+
+    }
+
     return (
         <div className={backgroundItemColor(id)}>
             <div >
@@ -82,6 +89,13 @@ export default function Todo({ id, description, done }) {
                     className={visibleItemButton(done)}
                 >
                     Ok
+                </button>
+
+                <button
+                    style={ {marginLeft: 10} }
+                    onClick={(e) => handleDeleteTodo(e)}
+                >
+                    Deletar
                 </button>
             </div>
         </div>

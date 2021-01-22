@@ -1,6 +1,8 @@
 export default function generateItemId(array_item) {
 
   array_item = array_item.map((item) => {
+    if (item == null)
+      return null;
     return item.id;
   });
 
