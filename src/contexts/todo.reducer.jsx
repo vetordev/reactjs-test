@@ -8,6 +8,15 @@ export default function reducer(state, action) {
     }
 
     const updateTodo = (todo) => {
+
+        state = state.map((item) => {
+            if(item.id != todo.id)
+                return item;
+
+            item.done = true;
+            return item;
+        });
+
         return state;
     };
 
