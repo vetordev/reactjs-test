@@ -1,17 +1,22 @@
 import generateId from '../utils/generateItemId';
+import repository from '../data/repository';
 
 export default function reducer(state, action) {
 
+    const data = repository();
+
     const addTodo = (todo) => {
         let todoItem = { id: generateId(state), description: todo, done: false };
+
+        data.setItemStringify("todos", [...state, todoItem])
         return [...state, todoItem];
     }
 
     const updateTodo = (todo) => {
 
         state = state.map((item) => {
-            if (todo == null)
-                return;
+            if (item == null)
+                return null;
 
             if(item.id != todo.id)
                 return item;
@@ -20,6 +25,7 @@ export default function reducer(state, action) {
             return item;
         });
 
+        data.setItemStringify("todos", state);
         return state;
     };
 
@@ -35,7 +41,7 @@ export default function reducer(state, action) {
             return item;
         });
 
-
+        data.setItemStringify("todos", state);
         return state
     }
 

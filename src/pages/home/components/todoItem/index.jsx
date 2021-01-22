@@ -87,12 +87,12 @@ export default function Todo({ id, description, done }) {
                     type="button"
                     onClick={(e) => handleDoneTodo(e)}
                     className={visibleItemButton(done)}
+                    style={ {marginRight: 10} }
                 >
                     Ok
                 </button>
 
                 <button
-                    style={ {marginLeft: 10} }
                     onClick={(e) => handleDeleteTodo(e)}
                 >
                     Deletar
