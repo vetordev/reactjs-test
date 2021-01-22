@@ -18,6 +18,10 @@ const useStyles = makeStyles(() => ({
 
     colorDoneRed: {
         color: '#f00'
+    },
+
+    invisibleItemButton: {
+        display: 'none'
     }
 }));
 
@@ -45,6 +49,16 @@ export default function Todo({ id, description, done }) {
 
     }
 
+    const visibleItemButton = (done) => {
+
+        if(done == true) {
+            return classes.invisibleItemButton
+        } else {
+            return null;
+        }
+
+    }
+
     const handleDoneTodo = (e) => {
         e.preventDefault();
 
@@ -62,7 +76,13 @@ export default function Todo({ id, description, done }) {
                 </div>
             </div>
             <div >
-                <button type="button" onClick={(e) => handleDoneTodo(e)} >Ok</button>
+                <button
+                    type="button"
+                    onClick={(e) => handleDoneTodo(e)}
+                    className={visibleItemButton(done)}
+                >
+                    Ok
+                </button>
             </div>
         </div>
     )
