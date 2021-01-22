@@ -3,9 +3,12 @@ import TodoList from "./components/todoList";
 import TodoHeader from "./components/todoHeader";
 import { makeStyles } from "@material-ui/core/styles";
 
+
 const useStyles = makeStyles(() => ({
+
     root: {
-        padding: 10
+        padding: 10,
+        fontFamily: 'Roboto'
     },
 }));
 
